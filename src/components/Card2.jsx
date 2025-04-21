@@ -9,35 +9,35 @@ const Card2 = ({ img1, img2, title, description }) => {
   };
 
   return (
-    <div
-      onClick={handleClick}
-      className="bg-white rounded-2xl shadow-lg p-4 w-72 border-2 border-black relative cursor-pointer transition-transform hover:scale-105 overflow-hidden"
-    >
-      {/* Background image section */}
-      <div
-        className="w-full h-24 bg-no-repeat bg-contain bg-center mb-4"
-        style={{ backgroundImage: `url(${img1})` }}
-      >
-        {/* Center circular logo on top of bg */}
-        <div className="w-12 h-12 rounded-full bg-white border-2 border-black mx-auto flex justify-center items-center mt-6">
-          <img src={img2} alt="Logo" className="w-6 h-6 object-contain" />
-        </div>
-      </div>
+    <div  className="bg-white rounded-xl shadow-md p-4 w-60 flex flex-col items-center space-y-2 transform transition duration-300 hover:scale-105 hover:shadow-xl">
+      {/* Top Image */}
+      <img
+        src="/t.png"
+        alt="Card Top"
+        className="w-16 h-16 mt-2 rounded-full"
+      />
 
-      {/* Title and Description */}
-      <div className="text-center">
-        <h2 className="text-lg font-bold">{title}</h2>
-        <p className="text-sm mt-2 text-gray-700">“{description}”</p>
-      </div>
 
-      {/* Decorative feather */}
-      <div className="absolute bottom-2 right-2 w-6 h-6 opacity-60">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Feather_icon.svg/1024px-Feather_icon.svg.png"
-          alt="feather"
-          className="w-full h-full object-contain"
-        />
-      </div>
+      {/* Title */}
+      <h3 className="font-semibold text-center text-md text-gray-800 leading-tight">
+        Company Research Agent
+      </h3>
+
+      {/* Creator */}
+      {/* <p className="text-sm text-gray-500 text-center -mt-1">By <span className="text-[#0077b5] font-semibold">@dharmesh</span></p> */}
+
+      {/* Task Info */}
+      <p className="text-xs text-gray-600 text-center mt-1">1 credit per task</p>
+      <p className="text-xs text-gray-600 text-center">25.2K tasks completed</p>
+
+      {/* Rating */}
+      <p className="text-xs text-red-500 font-medium text-center">★ 4.28 (2505 reviews)</p>
+
+      {/* Button */}
+      <button className="mt-2 w-24 px-4 py-1 text-sm font-medium border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition">
+        Go
+      </button>
+
     </div>
   );
 };

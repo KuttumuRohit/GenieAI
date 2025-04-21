@@ -14,8 +14,8 @@ export default function Home() {
   };
 
   const card2Data = Array(6).fill({
-    img1: '/img1.png',
-    img2: '/img2.png',
+    img1: '/t.png',
+    img2: '/t.png',
     title: 'YOUTUBE | THUMBNAIL',
     description: 'TO GENERATE YOUTUBE THUMBNAIL',
   });
@@ -53,6 +53,7 @@ export default function Home() {
           />
         ))}
       </div>
+      
 
       {/* Card1s with alternating movement */}
       <div className="flex flex-col space-y-6 items-center w-full mt-8">
