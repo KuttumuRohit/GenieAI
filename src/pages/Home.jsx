@@ -1,10 +1,24 @@
 import Card2 from '../components/Card2';
 import Card1 from '../components/Card1';
 import Card3 from '../components/Card3';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
+  const navigate = useNavigate();
   const overMoveLeft = 'translate-x-[-250px]';
   const overMoveRight = 'translate-x-[250px]';
+
+  const handleClick = () => {
+    navigate('/text_generator');
+  };
+
+  const card2Data = Array(6).fill({
+    img1: '/img1.png',
+    img2: '/img2.png',
+    title: 'YOUTUBE | THUMBNAIL',
+    description: 'TO GENERATE YOUTUBE THUMBNAIL',
+  });
 
   return (
     <div className="bg-[#1E1C2A] min-h-screen flex flex-col items-center py-10 space-y-10 text-white">
@@ -27,64 +41,55 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Grid of 6 Card2s - manually placed */}
+      {/* Grid of Card2s */}
       <div className="grid grid-cols-3 gap-6 mt-4">
-        <Card2
-          img1="/.png"
-          img2="/t.png"
-          title="YOUTUBE | THUMB NAIL"
-          description="TO GENERATE YOUTUBE THUMBNAIL"
-        />
-        <Card2
-          img1="/.png"
-          img2="/t.png"
-          title="YOUTUBE | THUMB NAIL"
-          description="TO GENERATE YOUTUBE THUMBNAIL"
-        />
-        <Card2
-          img1="/.png"
-          img2="/t.png"
-          title="YOUTUBE | THUMB NAIL"
-          description="TO GENERATE YOUTUBE THUMBNAIL"
-        />
-        <Card2
-          img1="/.png"
-          img2="/t.png"
-          title="YOUTUBE | THUMB NAIL"
-          description="TO GENERATE YOUTUBE THUMBNAIL"
-        />
-        <Card2
-          img1="/.png"
-          img2="/t.png"
-          title="YOUTUBE | THUMB NAIL"
-          description="TO GENERATE YOUTUBE THUMBNAIL"
-        />
-        <Card2
-          img1="/.png"
-          img2="/t.png"
-          title="YOUTUBE | THUMB NAIL"
-          description="TO GENERATE YOUTUBE THUMBNAIL"
-        />
+        {card2Data.map((card, index) => (
+          <Card2
+            key={index}
+            img1={card.img1}
+            img2={card.img2}
+            title={card.title}
+            description={card.description}
+          />
+        ))}
       </div>
 
       {/* Card1s with alternating movement */}
       <div className="flex flex-col space-y-6 items-center w-full mt-8">
         <div className="flex justify-center w-full overflow-visible">
           <div className={`w-fit ${overMoveLeft}`}>
-            <Card1 
-              title="AI TEXT GENERATION"
-              description="AI Text Generation – Instantly create high-quality content powered by advanced artificial intelligence. From blog posts to product descriptions, generate it all in seconds"
-              imageSrc="/aiImage.png"
-              cardColor="#EFC1FF"
-            />
+            <div
+              className="p-6 rounded-xl shadow-md text-black w-[500px] h-[220px] flex items-center"
+              style={{ backgroundColor: "#EFC1FF" }}
+            >
+              <div className="flex items-center space-x-6 w-full">
+                <img src="/aiImage.png" alt="Card Illustration" className="w-36 h-auto rounded-md" />
+                <div className="flex flex-col justify-between h-full w-full">
+                  <div className="space-y-2">
+                    <h2 className="text-2xl font-bold text-center">AI TEXT GENERATION</h2>
+                    <p className="text-sm leading-snug text-center">
+                      Instantly create high-quality content powered by advanced AI. From blog posts to product descriptions, generate it all in seconds.
+                    </p>
+                  </div>
+                  <div className="flex justify-end">
+                    <button
+                      onClick={handleClick}
+                      className="bg-blue-700 text-white text-xs px-3 py-1 rounded hover:bg-blue-800 transition"
+                    >
+                      START HERE
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="flex justify-center w-full overflow-visible">
           <div className={`w-fit ${overMoveRight}`}>
-            <Card1 
+            <Card1
               title="AI IMAGE GENERATOR"
-              description="AI Text & Image Generator\nCreate stunning visuals and compelling content instantly with the power of AI.\nPerfect for blogs, marketing, and creative projects"
+              description="Create stunning visuals and compelling content instantly with the power of AI. Perfect for blogs, marketing, and creative projects."
               imageSrc="/aiImage.png"
               cardColor="#86A1FE"
             />
@@ -93,39 +98,29 @@ export default function Home() {
 
         <div className="flex justify-center w-full overflow-visible">
           <div className={`w-fit ${overMoveLeft}`}>
-            <Card1 
-              title="AI Script Writer"
-              description="Generate engaging scripts for videos, podcasts, ads, and more in seconds. Let AI bring your ideas to life"
+            <Card1
+              title="AI SCRIPT WRITER"
+              description="Generate engaging scripts for videos, podcasts, ads, and more in seconds. Let AI bring your ideas to life."
               imageSrc="/aiImage.png"
               cardColor="#DEFFBE"
             />
           </div>
         </div>
       </div>
+
+      {/* More Tools Section */}
       <div className="bg-[#1E1C2A] py-10 px-4 text-white flex flex-col items-center">
-      <h2 className="text-xl font-bold mb-8 text-center uppercase">
-        More Tools For You and Upcoming Tools
-      </h2>
-      
-      <div className="flex flex-wrap justify-center gap-8">
-        <Card3 
-          imageSrc="/Agent.png" 
-          title="AI Logo Maker" 
-        />
-        <Card3 
-          imageSrc="/age.png"  
-          title="AI SCRIPT WRITER" 
-        />
-        <Card3 
-          imageSrc="/Agent.png"  
-          title="AI COMIC DESIGN" 
-        />
-        <Card3 
-          imageSrc="/Agent.png"  
-          title="MORE" 
-        />
+        <h2 className="text-xl font-bold mb-8 text-center uppercase">
+          More Tools For You and Upcoming Tools
+        </h2>
+
+        <div className="flex flex-wrap justify-center gap-8">
+          <Card3 imageSrc="/Agent.png" title="AI LOGO MAKER" />
+          <Card3 imageSrc="/age.png" title="AI SCRIPT WRITER" />
+          <Card3 imageSrc="/Agent.png" title="AI COMIC DESIGN" />
+          <Card3 imageSrc="/Agent.png" title="MORE" />
+        </div>
       </div>
-    </div>  
     </div>
   );
 }

@@ -1,6 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Card1 = ({ title, description, imageSrc, cardColor }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/chat'); // replace '/chat' with your desired route
+  };
+
   return (
     <div
       className="p-6 rounded-xl shadow-md text-black w-[500px] h-[220px] flex items-center"
@@ -14,12 +21,12 @@ const Card1 = ({ title, description, imageSrc, cardColor }) => {
             <p className="text-sm leading-snug text-center">{description}</p>
           </div>
           <div className="flex justify-end">
-            <a
-              href="#"
+            <button
+              onClick={handleClick}
               className="bg-blue-700 text-white text-xs px-3 py-1 rounded hover:bg-blue-800 transition"
             >
               START HERE
-            </a>
+            </button>
           </div>
         </div>
       </div>
