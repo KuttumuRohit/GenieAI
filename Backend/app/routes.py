@@ -2,6 +2,8 @@
 from flask import jsonify, request
 from app.agents.script_writer import ScriptWriter  # Import the ScriptWriter class
 from app.agents.text_gen import TextWriter
+from app.agents.clarity_bot import ClarityBot
+from app.agents.grammar_check import GrammarBot
 
 def configure_routes(app):
     @app.route('/api/test', methods=['GET'])
@@ -46,3 +48,42 @@ def configure_routes(app):
         except Exception as e:
             # If an error occurs, return the error message
             return jsonify({"error": str(e)}), 400
+        
+    @app.route('/api/clarityBot', methods=['POST'])
+    def clarity_bot_route():
+        try:
+            # Get JSON data from the incoming request
+            data = request.json
+
+            # Initialize ScriptWriter with the received data
+            writer = ClarityBot(data)
+            
+            # Call the method to generate the script
+            generated_script = writer.simplify_text()
+
+            # Return the generated script in the response
+            return jsonify({"script": generated_script})
+
+        except Exception as e:
+            # If an error occurs, return the error message
+            return jsonify({"error": str(e)}), 400
+        
+    @app.route('/api/grammar_check', methods=['POST'])
+    def grammar_checker():
+        try:
+            # Get JSON data from the incoming request
+            data = request.json
+
+            # Initialize ScriptWriter with the received data
+            writer = GrammarBot(data)
+            
+            # Call the method to generate the script
+            generated_text = writer.grammar_check()
+
+            # Return the generated script in the response
+            return jsonify({"script": generated_text})
+
+        except Exception as e:
+            # If an error occurs, return the error message
+            return jsonify({"error": str(e)}), 400
+        
