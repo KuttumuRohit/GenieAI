@@ -44,7 +44,7 @@ const Chat = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-md w-full max-w-xl p-6">
-        <h1 className="text-2xl font-bold mb-4">Chat Page</h1>
+        <h1 className="text-2xl font-bold mb-4">AI Script Writer</h1>
 
         <div className="h-64 overflow-y-auto border rounded p-3 mb-4 bg-gray-50">
           {messages.length === 0 && (
