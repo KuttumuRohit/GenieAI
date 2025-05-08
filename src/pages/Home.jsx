@@ -8,6 +8,7 @@ export default function Home() {
   const navigate = useNavigate();
   const overMoveLeft = "translate-x-[-250px]";
   const overMoveRight = "translate-x-[250px]";
+  
 
   const handleClick = () => {
     navigate("/text_generator");
@@ -16,8 +17,21 @@ export default function Home() {
   const handleGrmmar = () => {
     navigate("/grammar_check");
   };
+  const handleCaptions=()=>{
+    navigate("/captions_generator")
+  }
 
-  const card2Data = Array(5).fill({
+  const handleResume=()=>{
+    navigate("/resume_builder")
+  }
+  const handleTrans=()=>{
+    navigate("/translator")
+  }
+  const handleSummarize=()=>{
+    navigate("/summarize")
+  }
+
+  const card2Data = Array(1).fill({
     img1: "/clarityBot.png",
     img2: "/t.png",
     title: "ClarityBot",
@@ -46,6 +60,7 @@ export default function Home() {
 
       {/* Grid of Card2s */}
       <div className="grid grid-cols-3 gap-6 mt-4">
+        {/* grammar guard */}
         <div className="bg-white rounded-xl shadow-md p-4 w-60 flex flex-col items-center space-y-2 transform transition duration-300 hover:scale-105 hover:shadow-xl">
           {/* Top Image */}
           <img
@@ -77,6 +92,134 @@ export default function Home() {
             Go
           </button>
         </div>
+        {/* captions generating */}
+        <div className="bg-white rounded-xl shadow-md p-4 w-60 flex flex-col items-center space-y-2 transform transition duration-300 hover:scale-105 hover:shadow-xl">
+          {/* Top Image */}
+          <img
+            src="/captionCrafter.png"
+            alt="Card Top"
+            className="w-20 h-20 mt-2 rounded-full"
+          />
+
+          {/* Title */}
+          <h3 className="font-semibold text-center text-md text-gray-800 leading-tight">
+          Social Media Caption Bot
+          </h3>
+
+          {/* Task Info */}
+          <p className="text-xs text-gray-600 text-center">
+            25.2K tasks completed
+          </p>
+
+          {/* Rating */}
+          <p className="text-xs text-red-500 font-medium text-center">
+            ★ 4.28 (2505 reviews)
+          </p>
+
+          {/* Button */}
+          <button
+            className="mt-2 w-24 px-4 py-1 text-sm font-medium border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition"
+            onClick={handleCaptions}
+          >
+            Go
+          </button>
+        </div>
+        {/* Resume */}
+        <div className="bg-white rounded-xl shadow-md p-4 w-60 flex flex-col items-center space-y-2 transform transition duration-300 hover:scale-105 hover:shadow-xl">
+          
+          <img
+            src="/resume.png"
+            alt="Card Top"
+            className="w-20 h-20 mt-2 rounded-full"
+          />
+
+          
+          <h3 className="font-semibold text-center text-md text-gray-800 leading-tight">
+          Resume Builder
+          </h3>
+
+          
+          <p className="text-xs text-gray-600 text-center">
+            25.2K tasks completed
+          </p>
+
+          
+          <p className="text-xs text-red-500 font-medium text-center">
+            ★ 4.28 (2505 reviews)
+          </p>
+
+          {/* Button */}
+          <button
+            className="mt-2 w-24 px-4 py-1 text-sm font-medium border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition"
+            onClick={handleResume}
+          >
+            Go
+          </button>
+        </div>
+        {/* Translator */}
+        <div className="bg-white rounded-xl shadow-md p-4 w-60 flex flex-col items-center space-y-2 transform transition duration-300 hover:scale-105 hover:shadow-xl">
+          {/* Top Image */}
+          <img
+            src="/translator.png"
+            alt="Card Top"
+            className="w-20 h-20 mt-2 rounded-full"
+          />
+
+          {/* Title */}
+          <h3 className="font-semibold text-center text-md text-gray-800 leading-tight">
+          Translator
+          </h3>
+
+          {/* Task Info */}
+          <p className="text-xs text-gray-600 text-center">
+            25.2K tasks completed
+          </p>
+
+          {/* Rating */}
+          <p className="text-xs text-red-500 font-medium text-center">
+            ★ 4.28 (2505 reviews)
+          </p>
+
+          {/* Button */}
+          <button
+            className="mt-2 w-24 px-4 py-1 text-sm font-medium border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition"
+            onClick={handleTrans}
+          >
+            Go
+          </button>
+        </div>
+        <div className="bg-white rounded-xl shadow-md p-4 w-60 flex flex-col items-center space-y-2 transform transition duration-300 hover:scale-105 hover:shadow-xl">
+          {/* Top Image */}
+          <img
+            src="/summamrize.png"
+            alt="Card Top"
+            className="w-20 h-20 mt-2 rounded-full"
+          />
+
+          {/* Title */}
+          <h3 className="font-semibold text-center text-md text-gray-800 leading-tight">
+          SummarizePro
+          </h3>
+
+          {/* Task Info */}
+          <p className="text-xs text-gray-600 text-center">
+            25.2K tasks completed
+          </p>
+
+          {/* Rating */}
+          <p className="text-xs text-red-500 font-medium text-center">
+            ★ 4.28 (2505 reviews)
+          </p>
+
+          {/* Button */}
+          <button
+            className="mt-2 w-24 px-4 py-1 text-sm font-medium border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition"
+            onClick={handleSummarize}
+          >
+            Go
+          </button>
+        </div>
+        {/* Remaining cards */}
         {card2Data.map((card, index) => (
           <Card2
             key={index}
